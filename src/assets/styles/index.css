@@ -1,0 +1,8 @@
+/* 第三方库重置默认样式 */
+@import 'normalize.css';
+
+/* 全局样式 */
+@import './common/global.css';
+
+/* 路由页面公共样式 */
+@import './common/page-common.scss';  

@@ -1,0 +1,36 @@
+
+
+@mixin flexRow($justify: space-between, $align: center, $flex-wrap: wrap) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin flexCol($justify: space-between, $align: center, $flex-wrap: wrap) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $flex-wrap;
+}
+
+/**
+ *  div的阴影效果
+*/
+@mixin boxShadowBottom() {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@mixin boxShadowRight() {
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.1);
+}
+
+@mixin boxShadowLeft() {
+  box-shadow: -1px 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+@mixin boxShadowTop() {
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+}
