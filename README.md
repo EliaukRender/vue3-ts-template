@@ -29,16 +29,25 @@ src/
 ## 开始使用
 
 1. 安装依赖
+
+```bash
+# node版本推荐
+nvm install 18.18.0
+nvm use 18.18.0
+```
+
 ```bash
 npm install
 ```
 
 2. 启动开发服务器
+
 ```bash
 npm run dev
 ```
 
 3. 构建生产版本
+
 ```bash
 npm run build
 ```

@@ -1,5 +1,6 @@
-
-
+/**
+ * flex布局
+ */
 @mixin flexRow($justify: space-between, $align: center, $flex-wrap: wrap) {
   display: flex;
   flex-direction: row;

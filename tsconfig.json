@@ -1,7 +1,9 @@
 {
   "files": [],
   "references": [
+    // app运行环境
     { "path": "./tsconfig.app.json" },
+    // node运行环境
     { "path": "./tsconfig.node.json" }
   ]
 }
