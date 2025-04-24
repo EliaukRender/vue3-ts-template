@@ -4,27 +4,32 @@
     <SvgIcon name="expression-1" :icon-style="{ width: '2em', height: '2em' }"></SvgIcon>
 
     <div class="item"></div>
+
+    <div style="width: 200px">
+      <FixedWhRadio :ratio="10 / 3">
+        <div style="width: 100%; height: 100%; background-color: red"></div>
+      </FixedWhRadio>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { showFullScreenLoading, hideFullScreenLoading } from "@/components/Loading/loading";
+// import { showFullScreenLoading, hideFullScreenLoading } from "@/components/Loading/loading";
 defineOptions({
-  name: 'Home'
-})
+  name: "Home",
+});
 
 const handleResize = () => {
   console.log("handleResize");
-}
+};
 
 onMounted(() => {
-  console.log("onMounted");
-  showFullScreenLoading();
-
-  setTimeout(() => {
-    hideFullScreenLoading();
-  }, 30000);
-})
+  // console.log("onMounted");
+  // showFullScreenLoading();
+  // setTimeout(() => {
+  //   hideFullScreenLoading();
+  // }, 30000);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +37,7 @@ onMounted(() => {
   height: 100%;
   overflow-y: auto;
 }
+
 .item {
   // width: 1rem;
   // height: 1rem;
@@ -50,6 +56,7 @@ onMounted(() => {
   width: 24px;
   height: 24px;
   color: #333;
+
   &:hover {
     color: #409eff;
   }
