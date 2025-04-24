@@ -5,6 +5,7 @@ import draggable from "./modules/draggable";
 import debounce from "./modules/debounce";
 import throttle from "./modules/throttle";
 import resizeObserver from "./modules/resize-observer";
+import slideIn from "./modules/slide-in";
 
 // 指令集合
 const directivesList: { [key: string]: Directive } = {
@@ -13,7 +14,8 @@ const directivesList: { [key: string]: Directive } = {
   draggable,
   debounce,
   throttle,
-  resizeObserver
+  resizeObserver,
+  slideIn,
 };
 
 const directives = {
