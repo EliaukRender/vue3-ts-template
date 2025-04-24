@@ -1,5 +1,12 @@
 /// <reference types="vite/client" />
 
+// 声明Vue文件
+// declare module "*.vue" {
+//   import type { DefineComponent } from "vue";
+//   const component: DefineComponent<{}, {}, any> | Vue;
+//   export default component;
+// }
+
 // 添加 SVG 图标虚拟模块的类型声明
 declare module 'virtual:svg-icons-register' {
   const content: any

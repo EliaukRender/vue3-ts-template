@@ -4,12 +4,14 @@
  * @date 2025-04-24
  */
 
- <!-- 使用示例 -->
- <!-- <div style="width: 200px">
-  <FixedWhRadio :ratio="10 / 3">
-    <div style="width: 100%; height: 100%; background-color: red">自定义内容</div>
-  </FixedWhRadio>
-</div> -->
+  <!-- 使用示例 -->
+  <!--
+  <div style="width: 200px">
+    <FixedWhRadio :ratio="10 / 3">
+      <div style="width: 100%; height: 100%; background-color: red">自定义内容</div>
+    </FixedWhRadio>
+  </div>
+  -->
 
 <template>
   <div class="aspect-ratio-box" :style="ratioStyle">

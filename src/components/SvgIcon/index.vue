@@ -19,6 +19,11 @@ const props = withDefaults(defineProps<SvgProps>(), {
 });
 
 const symbolId = computed(() => `#${props.prefix}-${props.name}`);
+
+// 添加默认导出
+defineOptions({
+  name: 'SvgIcon'
+});
 </script>
 
 <style scoped>
