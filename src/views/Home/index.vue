@@ -1,13 +1,16 @@
 <template>
   <div class="home">
-    <div class="item" v-slide-in="() => {}" v-for="item in 10" :key="item" ></div>
+    <el-button type="primary" @click="openDemoPage">打开Demos</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-onMounted(() => {
+const router = useRouter()
 
-});
+// 前往demos页面
+const openDemoPage = () => {
+  router.push('/demos')
+}
 </script>
 
 <style lang="scss" scoped>
