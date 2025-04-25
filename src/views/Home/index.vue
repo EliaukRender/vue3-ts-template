@@ -5,14 +5,12 @@
     <!-- 命令式弹窗示例 -->
     <DialogExample />
 
-    <!-- svg描边动画 -->
-    <SvgOutlineAnimation />
+
   </div>
 </template>
 
 <script setup lang="tsx">
 import DialogExample from "@/components/Dialog/example/index.vue"
-import SvgOutlineAnimation from "@/views/Demos/components/SvgOutlineAnimation.vue"
 
 const router = useRouter()
 
