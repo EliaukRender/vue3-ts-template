@@ -1,6 +1,6 @@
 /**
 * @file AutoHeightTransition.vue
-* @description 高度过渡
+* @description 高度过渡动画效果
 * @date 2025-04-24
 */
 <template>

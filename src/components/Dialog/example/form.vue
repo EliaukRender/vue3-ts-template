@@ -1,3 +1,8 @@
+/**
+ * @file form.vue
+ * @description dialog组件中的自定义内容
+ * @date 2025-04-25
+ */
 <template>
   <el-form :model="form" label-width="120px">
     <el-form-item label="姓名">
