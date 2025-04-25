@@ -12,7 +12,7 @@ import postcssPxtorem from "postcss-pxtorem";
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), ""); // 根据mode值加载对应的.env.**文件的环境变量
-  console.log("env", env);
+  // console.log("env", env);
 
   return {
     resolve: {
@@ -68,8 +68,8 @@ export default defineConfig(({ mode }) => {
             },
             browsers: "last 3 versions",
             autoprefixer: {
-              grid: true
-            }
+              grid: true,
+            },
           }),
           postcssPxtorem({
             // 如果是移动端，通常会设置较大的rootValue（如 37.5 或 75）
@@ -110,6 +110,31 @@ export default defineConfig(({ mode }) => {
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",
           assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+
+          manualChunks(id: string) {
+            // console.log("id", id);
+            // 1、第三方库较少时，将第三方库打包成一个单独的文件
+            if (
+              id.includes("node_modules") &&
+              (id.endsWith(".js") || id.endsWith(".ts"))
+            ) {
+              return "vendor";
+            }
+            // 2、项目中使用第三方库较多时，将第三方库按功能分组打包
+            // if (id.includes("node_modules")) {
+            //   if (id.includes("element-plus")) {
+            //     return "vendor-element-plus";
+            //   } else if (id.includes("vue")) {
+            //     return "vendor-vue";
+            //   } else if (id.includes("@vue")) {
+            //     return "vendor-vue-related";
+            //   } else if (id.includes("axios") || id.includes("lodash")) {
+            //     return "vendor-utils";
+            //   } else {
+            //     return "vendor-others";
+            //   }
+            // }
+          },
         },
       },
     },

@@ -1,6 +1,8 @@
 import { ElMessage, type MessageHandler, ElMessageBox } from "element-plus";
 
-// Toast提示的参数类型
+/**
+ * Toast提示的参数类型
+ */
 interface ToastOptions {
   message: string;
   type?: "success" | "warning" | "info" | "error";
@@ -8,7 +10,9 @@ interface ToastOptions {
   customClass?: string;
 }
 
-// 二次确认框的参数类型
+/**
+ * 二次确认框的参数类型
+ */
 interface ConfirmOptions {
   confirmTitle: string;
   confirmContent: string;
@@ -23,8 +27,10 @@ abstract class Toast {
   abstract ShowConfirmBox(confirmOptions: ConfirmOptions): void;
 }
 
-// Toast 和 ConfirmBox
-export const MessageUtil = new (class MyToastUtil implements Toast {
+/**
+ * Text
+ */
+class MyToastUtil implements Toast {
   static instance: MessageHandler | null = null;
 
   /**
@@ -46,19 +52,28 @@ export const MessageUtil = new (class MyToastUtil implements Toast {
    * 二次确认框
    */
   ShowConfirmBox(confirmOptions: ConfirmOptions): void {
-    const { type, confirmTitle, confirmContent, showCancelButton, showConfirmButton, callBack } = confirmOptions;
+    const {
+      type,
+      confirmTitle,
+      confirmContent,
+      showCancelButton,
+      showConfirmButton,
+      callBack,
+    } = confirmOptions;
     ElMessageBox({
       type: type || "success",
       title: confirmTitle,
       message: confirmContent,
       showCancelButton: showCancelButton || true,
-      showConfirmButton: showConfirmButton || true
+      showConfirmButton: showConfirmButton || true,
     })
       .then(() => {
         callBack();
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("err", err);
       });
   }
-})();
+}
+
+export const MessageUtil = new MyToastUtil();

@@ -28,7 +28,7 @@ const handleClick = () => {
     const autoHeight = box.getBoundingClientRect().height // 获取auto时的实际高度值
     box.style.height = '0px'
     // 让浏览器渲染
-    box.getBoundingClientRect() // 强制浏览器渲染
+    box.getBoundingClientRect() // 强制浏览器渲染(元素调用这个方法就可以使浏览器渲染)
     box.style.height = `${autoHeight}px`
   } else {
     // 收起
