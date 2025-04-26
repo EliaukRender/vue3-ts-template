@@ -29,7 +29,7 @@ html {
   /* Firefox */
   height: -moz-available;
   /* 标准属性 */
-  height: fill-available;
+  height: stretch;
   
   /* 防止内容溢出 */
   overflow: hidden;
