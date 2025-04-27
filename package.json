@@ -27,6 +27,7 @@
     "postcss-preset-env": "^10.1.6",
     "postcss-pxtorem": "^6.1.0",
     "sass": "^1.87.0",
+    "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "unplugin-auto-import": "^19.1.2",
     "unplugin-vue-components": "^28.5.0",
