@@ -27,7 +27,7 @@ export function createOverload() {
   }
 
   /**
-   * 添加重载
+   * 添加重载的实现
    * @param args 可变参数列表ß
    */
   overload.add = function (...args: any[]) {
