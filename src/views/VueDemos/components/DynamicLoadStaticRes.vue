@@ -4,19 +4,21 @@
 * @date 2025-04-29
 */
 <template>
-  <el-button type="primary" @click="handleClick(403)">403</el-button>
-  <el-button type="primary" @click="handleClick(404)">404</el-button>
-  <el-button type="primary" @click="handleClick(500)">500</el-button>
+  <div>
+    <el-button type="primary" @click="handleClick(403)">403</el-button>
+    <el-button type="primary" @click="handleClick(404)">404</el-button>
+    <el-button type="primary" @click="handleClick(500)">500</el-button>
+  </div>
   <img :src="imgPath" alt="">
 </template>
 
 <script setup lang='ts'>
-  /**
-   * 自动依赖发现：
-   *   1、多媒体元素的静态链接
-   *   2、样式中的静态链接
-   *   3、动态导入语句中的静态或者半静态的链接
-   */
+/**
+ * 自动依赖发现：
+ *   1、多媒体元素的静态链接
+ *   2、样式中的静态链接
+ *   3、动态导入语句中的静态或者半静态的链接
+ */
 const imgPath = ref<string>('')
 
 // 点击切换图片

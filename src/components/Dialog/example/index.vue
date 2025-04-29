@@ -4,7 +4,7 @@
 * @date 2025-04-25
 */
 <template>
-  <el-button type="primary" @click="handleClick">打开弹窗</el-button>
+  <el-button type="primary" @click="handleClick">打开命令式弹窗</el-button>
 </template>
 
 <script setup lang="ts">

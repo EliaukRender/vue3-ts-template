@@ -1,16 +1,10 @@
 <template>
   <div class="home">
     <el-button type="primary" @click="openDemoPage">打开Demos</el-button>
-
-    <!-- 命令式弹窗示例 -->
-    <DialogExample />
-
-
   </div>
 </template>
 
 <script setup lang="tsx">
-import DialogExample from "@/components/Dialog/example/index.vue"
 
 const router = useRouter()
 
