@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import AutoHeightTransition from './components/AutoHeightTransition.vue'
 import SvgOutlineAnimation from './components/SvgOutlineAnimation.vue'
 import BollsLoading from './components/BollsLoading.vue'
