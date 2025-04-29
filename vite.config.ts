@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   // console.log("env", env);
 
   return {
+    base: './',
     resolve: {
       alias: {
         "@": resolve(__dirname, "./src"), // __dirname : 当前文件所在的目录的绝对路径

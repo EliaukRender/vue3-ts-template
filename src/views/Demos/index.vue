@@ -9,6 +9,9 @@
     <!-- 小球加载动画 -->
     <BollsLoading />
 
+    <!-- 动态加载静态资源 -->
+    <DynamicLoadStaticRes />
+
   </div>
 </template>
 
@@ -16,6 +19,7 @@
 import AutoHeightTransition from './components/AutoHeightTransition.vue'
 import SvgOutlineAnimation from './components/SvgOutlineAnimation.vue'
 import BollsLoading from './components/BollsLoading.vue'
+import DynamicLoadStaticRes from './components/DynamicLoadStaticRes.vue'
 </script>
 
 <style lang="scss" scoped>
