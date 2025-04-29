@@ -3,20 +3,17 @@
     <div class="demos-container">
       <!-- 左侧菜单 -->
       <div class="menu">
-        <div 
-          v-for="(item, index) in demoList" 
-          :key="index"
-          class="menu-item"
-          :class="{ active: currentDemoName === item.name }"
-          @click="handleSelectDemo(item.component, item.name)"
-        >
+        <div v-for="(item, index) in demoList" :key="index" class="menu-item"
+          :class="{ active: currentDemoName === item.name }" @click="handleSelectDemo(item.component, item.name)">
           <span class="menu-item-text">{{ item.name }}</span>
         </div>
       </div>
 
       <!-- 右侧内容区域 -->
       <div class="content">
-        <component :is="currentDemo" />
+        <div class="content-container">
+          <component :is="currentDemo" />
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +47,7 @@ const handleSelectDemo = (component: any, name: string) => {
   currentDemo.value = component
   currentDemoName.value = name
 }
-</script> 
+</script>
 
 <style lang="scss" scoped>
 .demos {
@@ -104,7 +101,7 @@ const handleSelectDemo = (component: any, name: string) => {
       align-items: center;
       margin: 4px 8px;
       border-radius: 4px;
-      
+
       &:hover {
         background-color: #f5f5f5;
         color: #1890ff;
@@ -140,23 +137,19 @@ const handleSelectDemo = (component: any, name: string) => {
 
   .content {
     flex: 1;
-    height: 100%;
-    padding: 24px;
-    overflow-y: auto;
-    background-color: #fff;
+    padding: 16px;
+    background-color: #f2f3f4;
+    overflow: hidden;
 
-    &::-webkit-scrollbar {
-      width: 6px;
+    .content-container {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: #e8e8e8;
-      border-radius: 3px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: #f5f5f5;
-    }
   }
 }
 </style>

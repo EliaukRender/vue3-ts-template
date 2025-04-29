@@ -1,27 +1,12 @@
 <template>
   <div class="sticky-demo">
     <div class="container">
-      <div class="sticky-section">
-        <div class="sticky-header">Section 1 Header</div>
+      <div v-for="letter in letters" :key="letter" class="sticky-section">
+        <div class="sticky-header">{{ letter }}</div>
         <div class="content">
-          <p>This is the content for section 1. The header above will stick to the top while this content scrolls.</p>
-          <div class="placeholder"></div>
-        </div>
-      </div>
-
-      <div class="sticky-section">
-        <div class="sticky-header">Section 2 Header</div>
-        <div class="content">
-          <p>This is the content for section 2. The header above will stick to the top while this content scrolls.</p>
-          <div class="placeholder"></div>
-        </div>
-      </div>
-
-      <div class="sticky-section">
-        <div class="sticky-header">Section 3 Header</div>
-        <div class="content">
-          <p>This is the content for section 3. The header above will stick to the top while this content scrolls.</p>
-          <div class="placeholder"></div>
+          <ul class="name-list">
+            <li v-for="name in getNamesByLetter(letter)" :key="name">{{ name }}</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -29,25 +14,59 @@
 </template>
 
 <script setup lang='ts'>
-// No script logic needed for this demo
+const letters = ['A', 'B', 'C', 'D', 'E']
+
+const namesData = {
+  A: [
+    'Alice Anderson', 'Adam Adams', 'Alex Armstrong', 'Amanda Allen', 'Andrew Austin',
+    'Amy Adams', 'Arthur Anderson', 'April Allen', 'Alan Armstrong', 'Anna Austin',
+    'Aaron Adams', 'Ashley Anderson', 'Anthony Allen', 'Audrey Armstrong', 'Albert Austin',
+    'Abigail Adams', 'Austin Anderson', 'Ava Allen', 'Adrian Armstrong', 'Alyssa Austin'
+  ],
+  B: [
+    'Bob Brown', 'Barbara Baker', 'Benjamin Brooks', 'Betty Bennett', 'Brian Butler',
+    'Brenda Brown', 'Bradley Baker', 'Brittany Brooks', 'Bruce Bennett', 'Beth Butler',
+    'Brandon Brown', 'Bonnie Baker', 'Blake Brooks', 'Beverly Bennett', 'Brett Butler',
+    'Brooke Brown', 'Barry Baker', 'Brianna Brooks', 'Bernard Bennett', 'Bianca Butler'
+  ],
+  C: [
+    'Carol Carter', 'Charles Clark', 'Christine Cooper', 'Christopher Collins', 'Cynthia Campbell',
+    'Catherine Carter', 'Craig Clark', 'Cindy Cooper', 'Cody Collins', 'Claire Campbell',
+    'Carl Carter', 'Crystal Clark', 'Connor Cooper', 'Chelsea Collins', 'Cameron Campbell',
+    'Carla Carter', 'Corey Clark', 'Candice Cooper', 'Chad Collins', 'Caitlin Campbell'
+  ],
+  D: [
+    'David Davis', 'Diana Dixon', 'Daniel Duncan', 'Deborah Daniels', 'Donald Douglas',
+    'Diane Davis', 'Dennis Dixon', 'Dawn Duncan', 'Derek Daniels', 'Doris Douglas',
+    'Dale Davis', 'Dana Dixon', 'Dustin Duncan', 'Darlene Daniels', 'Dwayne Douglas',
+    'Daisy Davis', 'Dylan Dixon', 'Diana Duncan', 'Danny Daniels', 'Dolores Douglas'
+  ],
+  E: [
+    'Elizabeth Evans', 'Edward Edwards', 'Emily Elliott', 'Eric Ellis', 'Evelyn Eaton',
+    'Ethan Evans', 'Emma Edwards', 'Evan Elliott', 'Erica Ellis', 'Earl Eaton',
+    'Ella Evans', 'Eugene Edwards', 'Eileen Elliott', 'Erik Ellis', 'Edith Eaton',
+    'Evan Evans', 'Elaine Edwards', 'Ethan Elliott', 'Erika Ellis', 'Eugenia Eaton'
+  ]
+}
+
+const getNamesByLetter = (letter: string) => {
+  return namesData[letter as keyof typeof namesData] || []
+}
 </script>
 
 <style lang="scss" scoped>
 .sticky-demo {
-  height: 100vh;
-  overflow-y: auto;
-  padding: 2rem;
+  width: 100%;
+  height: 100%;
 
   .container {
-    max-width: 800px;
     margin: 0 auto;
   }
 
   .sticky-section {
     margin-bottom: 2rem;
-    background-color: #f5f5f5;
+    background-color: #e6f3ff;
     border-radius: 8px;
-    min-height: 100vh;
     position: relative;
 
     .sticky-header {
@@ -55,19 +74,38 @@
       top: 0;
       background-color: #4a90e2;
       color: white;
-      padding: 1rem;
       z-index: 1;
       width: 100%;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem;
     }
 
     .content {
+      width: 100%;
       padding: 1rem;
 
-      .placeholder {
-        height: 800px;
-        background-color: #e0e0e0;
-        border-radius: 4px;
-        margin-top: 1rem;
+      .name-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          padding: 1rem;
+          padding-right: 0;
+          border-bottom: 1px solid #e0e0e0;
+          font-size: 1.1rem;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #d4e8ff;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
       }
     }
   }
