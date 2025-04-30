@@ -15,6 +15,9 @@ html {
   overflow: hidden;
   line-height: 1.2;
   color: #262626;
+}
+
+* {
   box-sizing: border-box;
 }
 

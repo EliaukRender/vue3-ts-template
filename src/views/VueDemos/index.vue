@@ -26,6 +26,7 @@ import BollsLoading from './components/BollsLoading.vue'
 import DynamicLoadStaticRes from './components/DynamicLoadStaticRes.vue'
 import DialogExample from '@/components/Dialog/example/index.vue'
 import StickyPosition from './components/StickyPosition.vue'
+import WavesImage from './components/WavesImage.vue'
 
 // 组件列表
 const demoList = [
@@ -34,7 +35,8 @@ const demoList = [
   { name: 'SVG描边动画', component: SvgOutlineAnimation },
   { name: '小球加载动画', component: BollsLoading },
   { name: '动态加载静态资源', component: DynamicLoadStaticRes },
-  { name: '粘性定位', component: StickyPosition }
+  { name: '粘性定位', component: StickyPosition },
+  { name: '波浪图片', component: WavesImage }
 ]
 
 // 当前选中的组件和名称
@@ -143,6 +145,7 @@ const handleSelectDemo = (component: any, name: string) => {
     .content-container {
       width: 100%;
       height: 100%;
+      padding: 20px;
       background-color: #fff;
       border-radius: 8px;
       overflow-x: hidden;
