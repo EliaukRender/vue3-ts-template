@@ -36,7 +36,7 @@ const demoList = [
   { name: '小球加载动画', component: BollsLoading },
   { name: '动态加载静态资源', component: DynamicLoadStaticRes },
   { name: '粘性定位', component: StickyPosition },
-  { name: '波浪图片', component: WavesImage }
+  { name: '波浪效果', component: WavesImage }
 ]
 
 // 当前选中的组件和名称

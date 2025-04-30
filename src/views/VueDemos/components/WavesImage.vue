@@ -1,3 +1,9 @@
+/**
+ * @file WavesImage.vue
+ * @description 波浪效果, 使用clip-path和mask(纯css)实现
+ * @date 2025-04-30
+ */
+
 <template>
   <h1>方案一</h1>
   <!-- 第1种实现：clip-path -->
