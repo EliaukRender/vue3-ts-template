@@ -27,6 +27,7 @@ import DynamicLoadStaticRes from './components/DynamicLoadStaticRes.vue'
 import DialogExample from '@/components/Dialog/example/index.vue'
 import StickyPosition from './components/StickyPosition.vue'
 import WavesImage from './components/WavesImage.vue'
+import MouseMoveDirection from './components/MouseMoveDirection.vue'
 
 // 组件列表
 const demoList = [
@@ -36,7 +37,8 @@ const demoList = [
   { name: '小球加载动画', component: BollsLoading },
   { name: '动态加载静态资源', component: DynamicLoadStaticRes },
   { name: '粘性定位', component: StickyPosition },
-  { name: '波浪效果', component: WavesImage }
+  { name: '波浪效果', component: WavesImage },
+  { name: '鼠标移动方向', component: MouseMoveDirection }
 ]
 
 // 当前选中的组件和名称
