@@ -1,11 +1,12 @@
 /**
 * @file MouseMoveDirection.vue
-* @description 鼠标移动的方向
+* @description 鼠标移动进入div元素的方向, 上下左右
 * @date 2025-05-02
 */
 <template>
   <div class="container" ref="containerRef" @mouseenter="handleMouseMove" @mouseleave="handleMouseLeave">
-    <div class="mask" ref="maskRef">从不同方向移动鼠标查看效果</div>
+   <span>分别从div的四个方向移入鼠标</span>
+    <div class="mask" ref="maskRef">不同方向的transform</div>
   </div>
 </template>
 
@@ -14,6 +15,9 @@ const containerRef = useTemplateRef<HTMLDivElement | null>('containerRef')
 const maskRef = useTemplateRef<HTMLDivElement | null>('maskRef')
 
 
+/**
+ * 鼠标进入div
+ */
 const handleMouseMove = (e: MouseEvent) => {
   const rect = containerRef.value?.getBoundingClientRect()
   if (!rect || !maskRef.value) return
@@ -42,14 +46,16 @@ const handleMouseMove = (e: MouseEvent) => {
   }
 }
 
+/**
+ * 鼠标离开div
+ */
 const handleMouseLeave = () => {
   if (!maskRef.value) return
   maskRef.value.classList.remove('right', 'top', 'left', 'bottom')
-  maskRef.value.style.transform = ''
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   position: relative;
   width: 400px;
@@ -58,6 +64,17 @@ const handleMouseLeave = () => {
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    > span {
+      visibility: hidden;
+    }
+  }
+
 }
 
 .mask {
@@ -65,9 +82,12 @@ const handleMouseLeave = () => {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
+  text-align: center;
 }
 
 .mask.top,
@@ -82,24 +102,31 @@ const handleMouseLeave = () => {
   top: -100%;
   left: 0;
   transform: translateY(0);
+  transition: transform 0.5s ease;
+
 }
 
 .mask.bottom {
   bottom: -100%;
   left: 0;
   transform: translateY(0);
+  transition: transform 0.5s ease;
+
 }
 
 .mask.left {
   top: 0;
   left: -100%;
   transform: translateX(0);
+  transition: transform 0.5s ease;
+
 }
 
 .mask.right {
   top: 0;
   right: -100%;
   transform: translateX(0);
+  transition: transform 0.5s ease;
 }
 
 .container:hover .mask.top {
