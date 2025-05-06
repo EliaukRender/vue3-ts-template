@@ -16,37 +16,36 @@ const maskRef = useTemplateRef<HTMLDivElement | null>('maskRef')
 
 const handleMouseMove = (e: MouseEvent) => {
   const rect = containerRef.value?.getBoundingClientRect()
-  if (!rect) return
+  if (!rect || !maskRef.value) return
+
+  // 重置所有类名和transform
+  maskRef.value.classList.remove('right', 'top', 'left', 'bottom')
+  maskRef.value.style.transform = ''
 
   // 容器的基本角度
   const basicDeg = Math.atan2(rect.height, rect.width) * 180 / Math.PI
-  console.log(basicDeg);
 
   // 鼠标进入容器时，相对容器中心的角度
   const x = e.offsetX - rect.width / 2
   const y = rect.height / 2 - e.offsetY
   const deg = Math.atan2(y, x) * 180 / Math.PI
-  console.log(deg);
 
   // 判断鼠标进入div的方向
   if (deg >= -basicDeg && deg < basicDeg) {
-    maskRef.value?.classList.add('right')
-    console.log('right');
+    maskRef.value.classList.add('right')
   } else if (deg >= basicDeg && deg < 180 - basicDeg) {
-    maskRef.value?.classList.add('top')
-    console.log('top');
+    maskRef.value.classList.add('top')
   } else if ((deg >= 180 - basicDeg && deg < 180) || (deg >= -180 && deg < -180 + basicDeg)) {
-    maskRef.value?.classList.add('left')
-    console.log('left');
+    maskRef.value.classList.add('left')
   } else {
-    maskRef.value?.classList.add('bottom')
-    console.log('bottom');
-
+    maskRef.value.classList.add('bottom')
   }
 }
 
 const handleMouseLeave = () => {
-  maskRef.value?.classList.remove('right', 'top', 'left', 'bottom') // 清空上一次的效果
+  if (!maskRef.value) return
+  maskRef.value.classList.remove('right', 'top', 'left', 'bottom')
+  maskRef.value.style.transform = ''
 }
 </script>
 
@@ -63,39 +62,59 @@ const handleMouseLeave = () => {
 
 .mask {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100%;
-  transform: translateX(-100);
+  transition: transform 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mask.top,
+.mask.bottom,
+.mask.left,
+.mask.right {
+  opacity: 1;
+  visibility: visible;
 }
 
 .mask.top {
   top: -100%;
   left: 0;
-  transform: translateY(100%);
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+  transform: translateY(0);
 }
 
 .mask.bottom {
   bottom: -100%;
   left: 0;
-  transform: translateY(-100%);
+  transform: translateY(0);
 }
 
 .mask.left {
   top: 0;
   left: -100%;
-  transform: translateX(100%);
+  transform: translateX(0);
 }
 
 .mask.right {
   top: 0;
   right: -100%;
-  transform: translateX(-100%);
+  transform: translateX(0);
 }
 
-.container:hover .mask {
-  transform: translate(0, 0);
+.container:hover .mask.top {
+  transform: translateY(100%);
+}
+
+.container:hover .mask.bottom {
+  transform: translateY(-100%);
+}
+
+.container:hover .mask.left {
+  transform: translateX(100%);
+}
+
+.container:hover .mask.right {
+  transform: translateX(-100%);
 }
 </style>
