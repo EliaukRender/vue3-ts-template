@@ -3,7 +3,6 @@
 * @description 鼠标移动的方向
 * @date 2025-05-02
 */
-
 <template>
   <div class="container" ref="containerRef" @mouseenter="handleMouseMove" @mouseleave="handleMouseLeave">
     <div class="mask" ref="maskRef">从不同方向移动鼠标查看效果</div>
@@ -11,23 +10,25 @@
 </template>
 
 <script setup lang='ts'>
-const contaninerRef = useTemplateRef<HTMLDivElement | null>('containerRef')
+const containerRef = useTemplateRef<HTMLDivElement | null>('containerRef')
 const maskRef = useTemplateRef<HTMLDivElement | null>('maskRef')
 
 
 const handleMouseMove = (e: MouseEvent) => {
-  const rect = contaninerRef.value?.getBoundingClientRect()
+  const rect = containerRef.value?.getBoundingClientRect()
   if (!rect) return
+
+  // 容器的基本角度
   const basicDeg = Math.atan2(rect.height, rect.width) * 180 / Math.PI
   console.log(basicDeg);
 
-
+  // 鼠标进入容器时，相对容器中心的角度
   const x = e.offsetX - rect.width / 2
   const y = rect.height / 2 - e.offsetY
   const deg = Math.atan2(y, x) * 180 / Math.PI
   console.log(deg);
 
-
+  // 判断鼠标进入div的方向
   if (deg >= -basicDeg && deg < basicDeg) {
     maskRef.value?.classList.add('right')
     console.log('right');

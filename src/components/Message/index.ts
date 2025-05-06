@@ -1,3 +1,9 @@
+/**
+ * @file index.ts
+ * @description 消息提示组件
+ * @date 2025-05-04
+ */
+
 import { ElMessage, type MessageHandler, ElMessageBox } from "element-plus";
 
 /**
