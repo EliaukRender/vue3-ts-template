@@ -1,16 +1,105 @@
 /**
  * @file index.scss
- * @description 命令式弹窗组件的css样式
- * @date 2025-04-25
+ * @description 修改自定义弹窗的样式
+ * @date 2025-05-12
  */
 
-.custom-render-dialog {
+/**
+ * dialog默认样式，渲染Header和footer
+ */
+ .custom-render-dialog {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #d9dce2 !important;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.1) !important;
+
+  // 头部区域样式
   .el-dialog__header {
+    width: 100%;
+    height: 50px;
+    line-height: 52px;
+    padding: 0;
+
+    .custom-render-dialog-header {
+      display: flex;
+      height: 100%;
+      padding: 0 24px;
+      border-bottom: 1px solid #d9dce2;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: bold;
+      color: #262626;
+    }
+
+    .custom-render-dialog-close {
+      display: flex;
+      align-items: center;
+      height: 52px;
+      font-size: 20px;
+      color: #262626;
+      cursor: pointer;
+
+      svg {
+        height: 16px;
+        width: 16px;
+      }
+    }
   }
 
+  // 内容区域样式
   .el-dialog__body {
+    padding: 0;
   }
 
+  // 底部区域样式
   .el-dialog__footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+
+    .custom-render-dialog-footer {
+      height: 100%;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }
+
+/**
+  * dialog只有内容区域时的样式，没有header和footer
+  */
+.custom-render-dialog-no-header {
+  .el-dialog__header {
+    height: 0 !important;
+    display: none !important;
+  }
+}
+
+.custom-render-dialog-no-footer {
+  .el-dialog__footer {
+    height: 0 !important;
+    display: none !important;
+  }
+}
+
+.custom-render-dialog-full-screen {
+  height: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+/**
+ * 用户自定义dialog类名的样式---开始
+ */
+.user-custom-dialog {
+}
+
+/**
+ * 用户自定义dialog类名的样式---结束
+ */

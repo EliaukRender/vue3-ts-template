@@ -90,6 +90,7 @@ export default defineConfig(({ mode }) => {
       host: true,
       hmr: true,
       port: 8888,
+      open: true,
       proxy: {
         "/api": {
           target: "http://47.113.177.51:53000",
